@@ -1,5 +1,5 @@
 #pragma once
-
+#include "Conexion.h"
 namespace SalteñeriaSIS301 {
 
 	using namespace System;
@@ -14,9 +14,11 @@ namespace SalteñeriaSIS301 {
 	/// </summary>
 	public ref class inventario2 : public System::Windows::Forms::Form
 	{
+		Conexion^ elimi;
 	public:
 		inventario2(void)
 		{
+			elimi = Conexion::ObtenerConexion();
 			InitializeComponent();
 			//
 			//TODO: agregar código de constructor aquí
@@ -131,6 +133,15 @@ namespace SalteñeriaSIS301 {
 		}
 #pragma endregion
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+
+		String^ valor = textBox1->Text;
+		if (String::IsNullOrEmpty(valor)) {
+			MessageBox::Show("Por favor, ingrese un valor para eliminar.");
+			return;
+		}
+		elimi->eliminar("reservas", valor);
+		MessageBox::Show("Eliminación exitosa");
+		textBox1->Clear();
 	}
 };
 }

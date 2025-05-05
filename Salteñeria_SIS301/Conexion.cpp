@@ -36,7 +36,7 @@ void Conexion::mostrar(DataGridView^ dgv, String^ tabla) {
 void Conexion::eliminar(String^ tabla, String^ valor) {
     try {
         // Validar que la tabla sea permitida
-        array<String^>^ tablasPermitidas = { "medicos", "pacientes", "usuarios","anuncios"}; // <- aquí agregas tus tablas válidas
+        array<String^>^ tablasPermitidas = { "medicos", "reservas", "usuarios","anuncios"}; // <- aquí agregas tus tablas válidas
 
         bool tablaValida = false;
         for each(String ^ t in tablasPermitidas) {
@@ -104,9 +104,30 @@ void Conexion::eliminar(String^ tabla, String^ valor) {
             cmdEliminar->ExecuteNonQuery();
             MessageBox::Show("campaña eliminada");
 
-        }
-        
+		}
+		else if (tabla == "reservas") {
+			// Obtener el id del registro que se va a eliminar
+			String^ obtenerIdQuery = "SELECT id FROM " + tabla + " WHERE ci = @valor";
+			MySqlCommand^ cmdObtenerId = gcnew MySqlCommand(obtenerIdQuery, cn);
+			cmdObtenerId->Parameters->AddWithValue("@valor", valor);
+			Object^ resultado = cmdObtenerId->ExecuteScalar();
+			if (resultado == nullptr) {
+				MessageBox::Show("No se encontró el registro a eliminar.");
+				cn->Close();
+				return;
+			}
+			int idEliminado = Convert::ToInt32(resultado);
+			// Eliminar el registro
+			String^ consultaEliminar = "DELETE FROM " + tabla + " WHERE id = @id";
+			MySqlCommand^ cmdEliminar = gcnew MySqlCommand(consultaEliminar, cn);
+			cmdEliminar->Parameters->AddWithValue("@id", idEliminado);
+			cmdEliminar->ExecuteNonQuery();
+			MessageBox::Show("Registro eliminado");
+		}
+        else {
+            MessageBox::Show("Tabla no válida para eliminación.");
 
+        }
     
     }
     catch (Exception^ ex) {
