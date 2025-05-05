@@ -45,6 +45,7 @@ namespace SalteñeriaSIS301 {
 	private: System::Windows::Forms::Label^ label3;
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::Label^ label1;
+	private: System::Windows::Forms::Label^ label4;
 
 	protected:
 
@@ -70,6 +71,7 @@ namespace SalteñeriaSIS301 {
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->SuspendLayout();
 			// 
 			// button1
@@ -92,14 +94,14 @@ namespace SalteñeriaSIS301 {
 			// 
 			// textBox2
 			// 
-			this->textBox2->Location = System::Drawing::Point(116, 141);
+			this->textBox2->Location = System::Drawing::Point(116, 150);
 			this->textBox2->Name = L"textBox2";
 			this->textBox2->Size = System::Drawing::Size(373, 20);
 			this->textBox2->TabIndex = 11;
 			// 
 			// textBox1
 			// 
-			this->textBox1->Location = System::Drawing::Point(116, 84);
+			this->textBox1->Location = System::Drawing::Point(116, 93);
 			this->textBox1->Name = L"textBox1";
 			this->textBox1->Size = System::Drawing::Size(373, 20);
 			this->textBox1->TabIndex = 10;
@@ -116,7 +118,7 @@ namespace SalteñeriaSIS301 {
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(113, 125);
+			this->label2->Location = System::Drawing::Point(113, 134);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(49, 13);
 			this->label2->TabIndex = 8;
@@ -125,11 +127,20 @@ namespace SalteñeriaSIS301 {
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(113, 68);
+			this->label1->Location = System::Drawing::Point(113, 77);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(135, 13);
 			this->label1->TabIndex = 7;
 			this->label1->Text = L"TITULO DE LA CAMPAÑA";
+			// 
+			// label4
+			// 
+			this->label4->AutoSize = true;
+			this->label4->Location = System::Drawing::Point(126, 40);
+			this->label4->Name = L"label4";
+			this->label4->Size = System::Drawing::Size(93, 13);
+			this->label4->TabIndex = 14;
+			this->label4->Text = L"Publicar Campaña";
 			// 
 			// Productos
 			// 
@@ -138,6 +149,7 @@ namespace SalteñeriaSIS301 {
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(100)), static_cast<System::Int32>(static_cast<System::Byte>(150)),
 				static_cast<System::Int32>(static_cast<System::Byte>(250)));
 			this->ClientSize = System::Drawing::Size(773, 495);
+			this->Controls->Add(this->label4);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->textBox3);
 			this->Controls->Add(this->textBox2);

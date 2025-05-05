@@ -61,7 +61,7 @@ namespace SalteñeriaSIS301 {
 	private: System::Windows::Forms::TextBox^ textBox4;
 	private: System::Windows::Forms::TextBox^ textBox5;
 	private: System::Windows::Forms::ComboBox^ comboBox1;
-	private: System::Windows::Forms::DateTimePicker^ dateTimePicker1;
+
 
 
 
@@ -97,7 +97,6 @@ namespace SalteñeriaSIS301 {
 			this->textBox4 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox5 = (gcnew System::Windows::Forms::TextBox());
 			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
-			this->dateTimePicker1 = (gcnew System::Windows::Forms::DateTimePicker());
 			this->SuspendLayout();
 			// 
 			// label1
@@ -217,13 +216,6 @@ namespace SalteñeriaSIS301 {
 			this->comboBox1->Size = System::Drawing::Size(121, 21);
 			this->comboBox1->TabIndex = 21;
 			// 
-			// dateTimePicker1
-			// 
-			this->dateTimePicker1->Location = System::Drawing::Point(33, 265);
-			this->dateTimePicker1->Name = L"dateTimePicker1";
-			this->dateTimePicker1->Size = System::Drawing::Size(334, 20);
-			this->dateTimePicker1->TabIndex = 22;
-			// 
 			// Administrativo
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -232,7 +224,6 @@ namespace SalteñeriaSIS301 {
 				static_cast<System::Int32>(static_cast<System::Byte>(250)));
 			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
 			this->ClientSize = System::Drawing::Size(757, 456);
-			this->Controls->Add(this->dateTimePicker1);
 			this->Controls->Add(this->comboBox1);
 			this->Controls->Add(this->textBox5);
 			this->Controls->Add(this->textBox3);

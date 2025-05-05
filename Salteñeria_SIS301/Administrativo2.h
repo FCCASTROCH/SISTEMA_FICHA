@@ -78,9 +78,9 @@ namespace SalteñeriaSIS301 {
 			this->label1->AutoSize = true;
 			this->label1->Location = System::Drawing::Point(77, 103);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(40, 13);
+			this->label1->Size = System::Drawing::Size(101, 13);
 			this->label1->TabIndex = 1;
-			this->label1->Text = L"Cedula";
+			this->label1->Text = L"cedula para eliminar";
 			// 
 			// textBox1
 			// 

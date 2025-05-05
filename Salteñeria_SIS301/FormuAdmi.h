@@ -75,6 +75,7 @@ namespace SalteñeriaSIS301 {
 	private: System::Windows::Forms::Label^ label3;
 	private: System::Windows::Forms::Panel^ panel12;
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
+	private: System::Windows::Forms::PictureBox^ pictureBox6;
 	public:
 		inventario^ inv;
 		FormuAdmi(void)
@@ -166,6 +167,7 @@ namespace SalteñeriaSIS301 {
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->timer1 = (gcnew System::Windows::Forms::Timer(this->components));
+			this->pictureBox6 = (gcnew System::Windows::Forms::PictureBox());
 			this->panel1->SuspendLayout();
 			this->panel6->SuspendLayout();
 			this->panel5->SuspendLayout();
@@ -183,6 +185,7 @@ namespace SalteñeriaSIS301 {
 			this->panel7->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->BeginInit();
 			this->panel11->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox6))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// panel1
@@ -470,6 +473,7 @@ namespace SalteñeriaSIS301 {
 			// panel12
 			// 
 			this->panel12->Controls->Add(this->label3);
+			this->panel12->Controls->Add(this->pictureBox6);
 			this->panel12->Controls->Add(this->pictureBox2);
 			this->panel12->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->panel12->Location = System::Drawing::Point(0, 0);
@@ -485,7 +489,7 @@ namespace SalteñeriaSIS301 {
 			this->label3->BackColor = System::Drawing::Color::Transparent;
 			this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label3->Location = System::Drawing::Point(63, 0);
+			this->label3->Location = System::Drawing::Point(116, 0);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(455, 59);
 			this->label3->TabIndex = 5;
@@ -630,6 +634,17 @@ namespace SalteñeriaSIS301 {
 			// 
 			this->timer1->Tick += gcnew System::EventHandler(this, &FormuAdmi::timer1_Tick);
 			// 
+			// pictureBox6
+			// 
+			this->pictureBox6->BackColor = System::Drawing::Color::Transparent;
+			this->pictureBox6->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox6.Image")));
+			this->pictureBox6->Location = System::Drawing::Point(61, 0);
+			this->pictureBox6->Name = L"pictureBox6";
+			this->pictureBox6->Size = System::Drawing::Size(65, 59);
+			this->pictureBox6->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
+			this->pictureBox6->TabIndex = 4;
+			this->pictureBox6->TabStop = false;
+			// 
 			// FormuAdmi
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -658,6 +673,7 @@ namespace SalteñeriaSIS301 {
 			this->panel7->ResumeLayout(false);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->EndInit();
 			this->panel11->ResumeLayout(false);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox6))->EndInit();
 			this->ResumeLayout(false);
 
 		}

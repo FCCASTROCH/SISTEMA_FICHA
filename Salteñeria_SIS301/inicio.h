@@ -29,6 +29,7 @@ namespace SalteñeriaSIS301 {
 		Conexion^ con;
 	private: System::Windows::Forms::PictureBox^ eyeIcon;
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
+	private: System::Windows::Forms::PictureBox^ pictureBox5;
 
 		   bool showPassword = false; // Variable para gestionar la visibilidad de la contraseña
 
@@ -94,10 +95,12 @@ namespace SalteñeriaSIS301 {
 			this->passwordIcon = (gcnew System::Windows::Forms::PictureBox());
 			this->eyeIcon = (gcnew System::Windows::Forms::PictureBox());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
+			this->pictureBox5 = (gcnew System::Windows::Forms::PictureBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->userIcon))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->passwordIcon))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->eyeIcon))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// textBox1
@@ -156,11 +159,11 @@ namespace SalteñeriaSIS301 {
 			this->label3->Anchor = System::Windows::Forms::AnchorStyles::Bottom;
 			this->label3->AutoSize = true;
 			this->label3->BackColor = System::Drawing::Color::Transparent;
-			this->label3->Font = (gcnew System::Drawing::Font(L"Segoe UI", 14));
+			this->label3->Font = (gcnew System::Drawing::Font(L"Segoe UI", 18));
 			this->label3->ForeColor = System::Drawing::Color::Navy;
 			this->label3->Location = System::Drawing::Point(527, 18);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(124, 25);
+			this->label3->Size = System::Drawing::Size(154, 32);
 			this->label3->TabIndex = 6;
 			this->label3->Text = L"Iniciar Sesión";
 			// 
@@ -231,6 +234,18 @@ namespace SalteñeriaSIS301 {
 			this->pictureBox1->TabIndex = 13;
 			this->pictureBox1->TabStop = false;
 			// 
+			// pictureBox5
+			// 
+			this->pictureBox5->Anchor = System::Windows::Forms::AnchorStyles::None;
+			this->pictureBox5->BackColor = System::Drawing::Color::Transparent;
+			this->pictureBox5->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox5.Image")));
+			this->pictureBox5->Location = System::Drawing::Point(605, 226);
+			this->pictureBox5->Name = L"pictureBox5";
+			this->pictureBox5->Size = System::Drawing::Size(153, 155);
+			this->pictureBox5->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
+			this->pictureBox5->TabIndex = 14;
+			this->pictureBox5->TabStop = false;
+			// 
 			// inicio
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -239,6 +254,7 @@ namespace SalteñeriaSIS301 {
 			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			this->ClientSize = System::Drawing::Size(770, 385);
+			this->Controls->Add(this->pictureBox5);
 			this->Controls->Add(this->pictureBox1);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->eyeIcon);
@@ -261,6 +277,7 @@ namespace SalteñeriaSIS301 {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->passwordIcon))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->eyeIcon))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 

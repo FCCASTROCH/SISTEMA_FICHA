@@ -40,8 +40,8 @@ namespace SalteñeriaSIS301 {
 	protected:
 	private: System::Windows::Forms::TextBox^ textBox1;
 	private: System::Windows::Forms::Label^ label1;
-	private: System::Windows::Forms::Panel^ panel1;
-	private: System::Windows::Forms::Label^ label2;
+
+
 
 	private:
 		/// <summary>
@@ -59,9 +59,6 @@ namespace SalteñeriaSIS301 {
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->label1 = (gcnew System::Windows::Forms::Label());
-			this->panel1 = (gcnew System::Windows::Forms::Panel());
-			this->label2 = (gcnew System::Windows::Forms::Label());
-			this->panel1->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// button1
@@ -87,29 +84,13 @@ namespace SalteñeriaSIS301 {
 			// label1
 			// 
 			this->label1->AutoSize = true;
+			this->label1->BackColor = System::Drawing::Color::Transparent;
+			this->label1->Font = (gcnew System::Drawing::Font(L"Segoe UI", 17));
 			this->label1->Location = System::Drawing::Point(33, 99);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(43, 13);
 			this->label1->TabIndex = 2;
 			this->label1->Text = L"Eliminar";
-			// 
-			// panel1
-			// 
-			this->panel1->Controls->Add(this->label2);
-			this->panel1->Location = System::Drawing::Point(201, 12);
-			this->panel1->Name = L"panel1";
-			this->panel1->Size = System::Drawing::Size(200, 381);
-			this->panel1->TabIndex = 3;
-			// 
-			// label2
-			// 
-			this->label2->AutoSize = true;
-			this->label2->Dock = System::Windows::Forms::DockStyle::Top;
-			this->label2->Location = System::Drawing::Point(0, 0);
-			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(126, 13);
-			this->label2->TabIndex = 0;
-			this->label2->Text = L"Historial de Eliminaciones";
 			// 
 			// inventario2
 			// 
@@ -118,15 +99,12 @@ namespace SalteñeriaSIS301 {
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(100)), static_cast<System::Int32>(static_cast<System::Byte>(150)),
 				static_cast<System::Int32>(static_cast<System::Byte>(250)));
 			this->ClientSize = System::Drawing::Size(741, 417);
-			this->Controls->Add(this->panel1);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->textBox1);
 			this->Controls->Add(this->button1);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
 			this->Name = L"inventario2";
 			this->Text = L"inventario2";
-			this->panel1->ResumeLayout(false);
-			this->panel1->PerformLayout();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -142,6 +120,8 @@ namespace SalteñeriaSIS301 {
 		elimi->eliminar("reservas", valor);
 		MessageBox::Show("Eliminación exitosa");
 		textBox1->Clear();
+		// historial
+
 	}
 };
 }

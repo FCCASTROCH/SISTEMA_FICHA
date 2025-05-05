@@ -69,16 +69,16 @@ namespace SalteñeriaSIS301 {
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->dataGridView1->BackgroundColor = System::Drawing::Color::White;
 			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView1->Location = System::Drawing::Point(254, 39);
+			this->dataGridView1->Location = System::Drawing::Point(137, 21);
 			this->dataGridView1->Name = L"dataGridView1";
-			this->dataGridView1->Size = System::Drawing::Size(439, 332);
+			this->dataGridView1->Size = System::Drawing::Size(592, 332);
 			this->dataGridView1->TabIndex = 0;
 			// 
 			// button1
 			// 
 			this->button1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(100)), static_cast<System::Int32>(static_cast<System::Byte>(198)),
 				static_cast<System::Int32>(static_cast<System::Byte>(250)));
-			this->button1->Location = System::Drawing::Point(75, 73);
+			this->button1->Location = System::Drawing::Point(12, 57);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(119, 23);
 			this->button1->TabIndex = 1;

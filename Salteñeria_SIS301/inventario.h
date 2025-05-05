@@ -48,7 +48,7 @@ namespace SalteñeriaSIS301 {
 	private: System::Windows::Forms::TextBox^ textBox2;
 	private: System::Windows::Forms::TextBox^ textBox3;
 
-	private: System::Windows::Forms::TextBox^ textBox5;
+
 	private: System::Windows::Forms::TextBox^ textBox6;
 	private: System::Windows::Forms::Label^ label7;
 	private: System::Windows::Forms::Label^ label8;
@@ -59,6 +59,7 @@ namespace SalteñeriaSIS301 {
 	private: System::Windows::Forms::Button^ button2;
 	private: System::Windows::Forms::Label^ label9;
 	private: System::Windows::Forms::ComboBox^ comboBox2;
+	private: System::Windows::Forms::ComboBox^ comboBox3;
 
 
 
@@ -116,7 +117,6 @@ namespace SalteñeriaSIS301 {
 			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox5 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox6 = (gcnew System::Windows::Forms::TextBox());
 			this->label7 = (gcnew System::Windows::Forms::Label());
 			this->label8 = (gcnew System::Windows::Forms::Label());
@@ -127,6 +127,7 @@ namespace SalteñeriaSIS301 {
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->label9 = (gcnew System::Windows::Forms::Label());
 			this->comboBox2 = (gcnew System::Windows::Forms::ComboBox());
+			this->comboBox3 = (gcnew System::Windows::Forms::ComboBox());
 			this->SuspendLayout();
 			// 
 			// label1
@@ -203,13 +204,6 @@ namespace SalteñeriaSIS301 {
 			this->textBox3->Name = L"textBox3";
 			this->textBox3->Size = System::Drawing::Size(100, 20);
 			this->textBox3->TabIndex = 9;
-			// 
-			// textBox5
-			// 
-			this->textBox5->Location = System::Drawing::Point(35, 131);
-			this->textBox5->Name = L"textBox5";
-			this->textBox5->Size = System::Drawing::Size(100, 20);
-			this->textBox5->TabIndex = 11;
 			// 
 			// textBox6
 			// 
@@ -296,6 +290,15 @@ namespace SalteñeriaSIS301 {
 			this->comboBox2->Size = System::Drawing::Size(121, 21);
 			this->comboBox2->TabIndex = 21;
 			// 
+			// comboBox3
+			// 
+			this->comboBox3->FormattingEnabled = true;
+			this->comboBox3->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"Pago Efectivo", L"Pago QR" });
+			this->comboBox3->Location = System::Drawing::Point(41, 128);
+			this->comboBox3->Name = L"comboBox3";
+			this->comboBox3->Size = System::Drawing::Size(121, 21);
+			this->comboBox3->TabIndex = 22;
+			// 
 			// inventario
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -303,6 +306,7 @@ namespace SalteñeriaSIS301 {
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(100)), static_cast<System::Int32>(static_cast<System::Byte>(150)),
 				static_cast<System::Int32>(static_cast<System::Byte>(250)));
 			this->ClientSize = System::Drawing::Size(757, 456);
+			this->Controls->Add(this->comboBox3);
 			this->Controls->Add(this->comboBox2);
 			this->Controls->Add(this->label9);
 			this->Controls->Add(this->button2);
@@ -313,7 +317,6 @@ namespace SalteñeriaSIS301 {
 			this->Controls->Add(this->label8);
 			this->Controls->Add(this->label7);
 			this->Controls->Add(this->textBox6);
-			this->Controls->Add(this->textBox5);
 			this->Controls->Add(this->textBox3);
 			this->Controls->Add(this->textBox2);
 			this->Controls->Add(this->textBox1);
@@ -354,31 +357,13 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 	//	String^ apellido;//
 	//	String^ ci;//
 	//	String^ medico;//
-	//	String^ metodo;//opcional
-	//	String^ fecha_Nacimiento;//
-	//	String^ genero;
-	//	String^ direccion;
-	//	String^ telefono;
-	//	nombre = Convert::ToString(textBox1->Text);
-	//	apellido = Convert::ToString(textBox2->Text);
-	//	ci = Convert::ToString(textBox3->Text);
-	//medico = Convert::ToString(comboBox2->Text);
-	//metodo = Convert::ToString(textBox5->Text);
-	//fecha_Nacimiento = Convert::ToString(dateTimePicker1->Text);
-	//genero = Convert::ToString(comboBox1->Text);
-	//direccion = Convert::ToString(textBox6->Text);
-	//telefono = Convert::ToString(textBox7->Text);
-	//MessageBox::Show("n :" +genero+" :"+ fecha_Nacimiento+": "+medico);
-	/*
-    created_at = DateTime::Now.ToString("yyyy-MM-dd HH:mm:ss");
-    updated_at = DateTime::Now.ToString("yyyy-MM-dd HH:mm:ss");*/
-
+	//	
 	// Recoger datos del formulario
 	String^ nombre = textBox1->Text;
 	String^ apellido = textBox2->Text;
 	String^ ci = textBox3->Text;
 	String^ medico = comboBox2->Text;
-	String^ metodo = textBox5->Text;
+	String^ metodo = comboBox3->Text;
 	String^ fecha_Nacimiento = dateTimePicker1->Value.ToString("yyyy-MM-dd");
 	String^ genero = comboBox1->Text;
 	String^ direccion = textBox6->Text;

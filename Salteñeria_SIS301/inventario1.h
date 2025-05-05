@@ -65,7 +65,7 @@ namespace SalteñeriaSIS301 {
 	private: System::Windows::Forms::Label^ label8;
 	private: System::Windows::Forms::Label^ label7;
 	private: System::Windows::Forms::TextBox^ textBox6;
-	private: System::Windows::Forms::TextBox^ textBox5;
+
 	private: System::Windows::Forms::TextBox^ textBox3;
 	private: System::Windows::Forms::TextBox^ textBox2;
 	private: System::Windows::Forms::TextBox^ textBox1;
@@ -77,6 +77,7 @@ namespace SalteñeriaSIS301 {
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::TextBox^ textBox4;
 	private: System::Windows::Forms::Label^ label10;
+	private: System::Windows::Forms::ComboBox^ comboBox3;
 
 
 
@@ -125,7 +126,6 @@ namespace SalteñeriaSIS301 {
 			this->label8 = (gcnew System::Windows::Forms::Label());
 			this->label7 = (gcnew System::Windows::Forms::Label());
 			this->textBox6 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox5 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
@@ -137,6 +137,7 @@ namespace SalteñeriaSIS301 {
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->textBox4 = (gcnew System::Windows::Forms::TextBox());
 			this->label10 = (gcnew System::Windows::Forms::Label());
+			this->comboBox3 = (gcnew System::Windows::Forms::ComboBox());
 			this->SuspendLayout();
 			// 
 			// button1
@@ -174,6 +175,7 @@ namespace SalteñeriaSIS301 {
 			this->button2->TabIndex = 52;
 			this->button2->Text = L"mostrar medicos";
 			this->button2->UseVisualStyleBackColor = true;
+			this->button2->Click += gcnew System::EventHandler(this, &inventario1::button2_Click);
 			// 
 			// comboBox1
 			// 
@@ -222,13 +224,6 @@ namespace SalteñeriaSIS301 {
 			this->textBox6->Name = L"textBox6";
 			this->textBox6->Size = System::Drawing::Size(100, 20);
 			this->textBox6->TabIndex = 46;
-			// 
-			// textBox5
-			// 
-			this->textBox5->Location = System::Drawing::Point(42, 121);
-			this->textBox5->Name = L"textBox5";
-			this->textBox5->Size = System::Drawing::Size(100, 20);
-			this->textBox5->TabIndex = 45;
 			// 
 			// textBox3
 			// 
@@ -321,6 +316,15 @@ namespace SalteñeriaSIS301 {
 			this->label10->TabIndex = 55;
 			this->label10->Text = L"ci";
 			// 
+			// comboBox3
+			// 
+			this->comboBox3->FormattingEnabled = true;
+			this->comboBox3->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"Pago efectivo", L"PagoQR" });
+			this->comboBox3->Location = System::Drawing::Point(48, 118);
+			this->comboBox3->Name = L"comboBox3";
+			this->comboBox3->Size = System::Drawing::Size(121, 21);
+			this->comboBox3->TabIndex = 57;
+			// 
 			// inventario1
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -328,6 +332,7 @@ namespace SalteñeriaSIS301 {
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(100)), static_cast<System::Int32>(static_cast<System::Byte>(150)),
 				static_cast<System::Int32>(static_cast<System::Byte>(250)));
 			this->ClientSize = System::Drawing::Size(741, 417);
+			this->Controls->Add(this->comboBox3);
 			this->Controls->Add(this->textBox4);
 			this->Controls->Add(this->label10);
 			this->Controls->Add(this->comboBox2);
@@ -339,7 +344,6 @@ namespace SalteñeriaSIS301 {
 			this->Controls->Add(this->label8);
 			this->Controls->Add(this->label7);
 			this->Controls->Add(this->textBox6);
-			this->Controls->Add(this->textBox5);
 			this->Controls->Add(this->textBox3);
 			this->Controls->Add(this->textBox2);
 			this->Controls->Add(this->textBox1);
@@ -366,7 +370,7 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 	String^ apellido = textBox2->Text;
 	String^ ci = textBox3->Text;
 	String^ medico = comboBox2->Text;
-	String^ metodo = textBox5->Text;
+	String^ metodo = comboBox3->Text;
 	String^ fecha_Nacimiento = dateTimePicker1->Value.ToString("yyyy-MM-dd");
 	String^ genero = comboBox1->Text;
 	String^ direccion = textBox6->Text;
@@ -383,6 +387,12 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 	MessageBox::Show("Paciente modificado correctamente", "Éxito", MessageBoxButtons::OK, MessageBoxIcon::Information);
 
 
+}
+private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
+	String^ medi;
+	//medicos = Convert::ToString(comboBox2->Text);
+	medi = "medicos";
+	mod->mostrarmedicos(comboBox2, medi);
 }
 };
 }
