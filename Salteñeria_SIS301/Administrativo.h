@@ -21,6 +21,7 @@ namespace SalteñeriaSIS301 {
 		{
 
 			con = Conexion::ObtenerConexion();
+			this->DoubleBuffered = true; // Ayuda a evitar parpadeo
 			InitializeComponent();
 			//
 			//TODO: agregar código de constructor aquí
@@ -33,6 +34,7 @@ namespace SalteñeriaSIS301 {
 		/// </summary>
 		~Administrativo()
 		{
+
 			if (components)
 			{
 				delete components;
@@ -61,6 +63,7 @@ namespace SalteñeriaSIS301 {
 	private: System::Windows::Forms::TextBox^ textBox4;
 	private: System::Windows::Forms::TextBox^ textBox5;
 	private: System::Windows::Forms::ComboBox^ comboBox1;
+
 
 
 
@@ -102,6 +105,7 @@ namespace SalteñeriaSIS301 {
 			// label1
 			// 
 			this->label1->AutoSize = true;
+			this->label1->BackColor = System::Drawing::Color::Transparent;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Times New Roman", 18));
 			this->label1->Location = System::Drawing::Point(101, 51);
 			this->label1->Name = L"label1";
@@ -112,6 +116,7 @@ namespace SalteñeriaSIS301 {
 			// label2
 			// 
 			this->label2->AutoSize = true;
+			this->label2->BackColor = System::Drawing::Color::Transparent;
 			this->label2->Location = System::Drawing::Point(316, 94);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(134, 13);
@@ -139,6 +144,7 @@ namespace SalteñeriaSIS301 {
 			// label5
 			// 
 			this->label5->AutoSize = true;
+			this->label5->BackColor = System::Drawing::Color::Transparent;
 			this->label5->Location = System::Drawing::Point(152, 147);
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(54, 13);
@@ -148,6 +154,7 @@ namespace SalteñeriaSIS301 {
 			// label6
 			// 
 			this->label6->AutoSize = true;
+			this->label6->BackColor = System::Drawing::Color::Transparent;
 			this->label6->Location = System::Drawing::Point(283, 147);
 			this->label6->Name = L"label6";
 			this->label6->Size = System::Drawing::Size(84, 13);
@@ -223,7 +230,9 @@ namespace SalteñeriaSIS301 {
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(100)), static_cast<System::Int32>(static_cast<System::Byte>(150)),
 				static_cast<System::Int32>(static_cast<System::Byte>(250)));
 			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
+			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
 			this->ClientSize = System::Drawing::Size(757, 456);
+			this->Controls->Add(this->label1);
 			this->Controls->Add(this->comboBox1);
 			this->Controls->Add(this->textBox5);
 			this->Controls->Add(this->textBox3);
@@ -235,8 +244,8 @@ namespace SalteñeriaSIS301 {
 			this->Controls->Add(this->label4);
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->label2);
-			this->Controls->Add(this->label1);
 			this->Controls->Add(this->textBox4);
+			this->DoubleBuffered = true;
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
 			this->Name = L"Administrativo";
 			this->Text = L"Administrativo";
@@ -251,6 +260,17 @@ namespace SalteñeriaSIS301 {
 private: System::Void dateTimePicker1_ValueChanged(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void Administrativo_Load(System::Object^ sender, System::EventArgs^ e) {
+	// Centrar el PictureBox en el formulario
+	//pictureBox5->Location = Point(
+	//	(this->ClientSize.Width - pictureBox5->Width) / 4,
+	//	(this->ClientSize.Height - pictureBox5->Height) / 4
+	//);
+
+	//// Mandar al fondo
+	//pictureBox5->SendToBack();
+	 // Centrar la imagen
+	
+
 }
 private: System::Void textBox4_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 }

@@ -56,6 +56,7 @@ namespace SalteñeriaSIS301 {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(inventario2::typeid));
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->label1 = (gcnew System::Windows::Forms::Label());
@@ -78,7 +79,7 @@ namespace SalteñeriaSIS301 {
 			this->textBox1->Location = System::Drawing::Point(36, 124);
 			this->textBox1->Multiline = true;
 			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(143, 36);
+			this->textBox1->Size = System::Drawing::Size(190, 36);
 			this->textBox1->TabIndex = 1;
 			// 
 			// label1
@@ -86,9 +87,9 @@ namespace SalteñeriaSIS301 {
 			this->label1->AutoSize = true;
 			this->label1->BackColor = System::Drawing::Color::Transparent;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Segoe UI", 17));
-			this->label1->Location = System::Drawing::Point(33, 99);
+			this->label1->Location = System::Drawing::Point(39, 79);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(43, 13);
+			this->label1->Size = System::Drawing::Size(97, 31);
 			this->label1->TabIndex = 2;
 			this->label1->Text = L"Eliminar";
 			// 
@@ -98,10 +99,13 @@ namespace SalteñeriaSIS301 {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(100)), static_cast<System::Int32>(static_cast<System::Byte>(150)),
 				static_cast<System::Int32>(static_cast<System::Byte>(250)));
+			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
+			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
 			this->ClientSize = System::Drawing::Size(741, 417);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->textBox1);
 			this->Controls->Add(this->button1);
+			this->DoubleBuffered = true;
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
 			this->Name = L"inventario2";
 			this->Text = L"inventario2";

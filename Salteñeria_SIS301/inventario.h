@@ -108,6 +108,7 @@ namespace SalteñeriaSIS301 {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(inventario::typeid));
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label3 = (gcnew System::Windows::Forms::Label());
@@ -160,6 +161,7 @@ namespace SalteñeriaSIS301 {
 			// label4
 			// 
 			this->label4->AutoSize = true;
+			this->label4->BackColor = System::Drawing::Color::Transparent;
 			this->label4->Location = System::Drawing::Point(451, 176);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(41, 13);
@@ -305,6 +307,8 @@ namespace SalteñeriaSIS301 {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(100)), static_cast<System::Int32>(static_cast<System::Byte>(150)),
 				static_cast<System::Int32>(static_cast<System::Byte>(250)));
+			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
+			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
 			this->ClientSize = System::Drawing::Size(757, 456);
 			this->Controls->Add(this->comboBox3);
 			this->Controls->Add(this->comboBox2);
@@ -326,6 +330,7 @@ namespace SalteñeriaSIS301 {
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
+			this->DoubleBuffered = true;
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
 			this->Name = L"inventario";
 			this->Load += gcnew System::EventHandler(this, &inventario::inventario_Load);

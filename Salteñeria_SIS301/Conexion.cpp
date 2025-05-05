@@ -154,7 +154,7 @@ void Conexion::insertarUsuario(String^ username, String^ password) {
 
 bool Conexion::buscarUsuario(String^ username, String^ password) {
     Conectar();
-    String^ consulta = "SELECT * FROM Usuario WHERE username = @username AND password = @password";
+    String^ consulta = "SELECT * FROM table__usuario WHERE username = @username AND password = @password";
     MySqlCommand^ comando = gcnew MySqlCommand(consulta, cn);
     comando->Parameters->AddWithValue("@username", username);
     comando->Parameters->AddWithValue("@password", password);

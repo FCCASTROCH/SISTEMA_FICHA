@@ -290,10 +290,8 @@ namespace SalteñeriaSIS301 {
 		String^ contrase;
 		nombre = Convert::ToString(textBox1->Text);
 		contrase = Convert::ToString(textBox2->Text);
-		formu->Show();
-
-		this->Hide();
-		/*if (con->buscarUsuario(nombre, contrase)) {
+	
+		if (con->buscarUsuario(nombre, contrase)) {
 			MessageBox::Show("Bienvenido Administrador " + nombre);
 			//inici->Show();
 			formu->Show();
@@ -307,7 +305,7 @@ namespace SalteñeriaSIS301 {
 			this->textBox1->BackColor = System::Drawing::Color::LightCoral;
 			this->textBox2->BackColor = System::Drawing::Color::LightCoral;
 			this->eyeIcon->BackColor = System::Drawing::Color::LightCoral;
-		}*/
+		}
 		//inici->ShowDialog();
 		//inici->Show();
 		//this->Close();

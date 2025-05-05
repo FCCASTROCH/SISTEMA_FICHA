@@ -68,6 +68,7 @@ namespace SalteñeriaSIS301 {
 
 
 
+
 	private:
 		/// <summary>
 		/// Variable del diseñador necesaria.
@@ -81,6 +82,7 @@ namespace SalteñeriaSIS301 {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(Administrativo1::typeid));
 			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->label3 = (gcnew System::Windows::Forms::Label());
@@ -122,8 +124,7 @@ namespace SalteñeriaSIS301 {
 			// 
 			// button1
 			// 
-			this->button1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(100)), static_cast<System::Int32>(static_cast<System::Byte>(198)),
-				static_cast<System::Int32>(static_cast<System::Byte>(250)));
+			this->button1->BackColor = System::Drawing::Color::Transparent;
 			this->button1->Location = System::Drawing::Point(77, 345);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(185, 23);
@@ -177,6 +178,7 @@ namespace SalteñeriaSIS301 {
 			// label6
 			// 
 			this->label6->AutoSize = true;
+			this->label6->BackColor = System::Drawing::Color::Transparent;
 			this->label6->Location = System::Drawing::Point(291, 111);
 			this->label6->Name = L"label6";
 			this->label6->Size = System::Drawing::Size(84, 13);
@@ -207,19 +209,22 @@ namespace SalteñeriaSIS301 {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(100)), static_cast<System::Int32>(static_cast<System::Byte>(150)),
 				static_cast<System::Int32>(static_cast<System::Byte>(250)));
+			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
+			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
 			this->ClientSize = System::Drawing::Size(741, 417);
+			this->Controls->Add(this->label6);
 			this->Controls->Add(this->comboBox1);
 			this->Controls->Add(this->textBox5);
 			this->Controls->Add(this->textBox3);
 			this->Controls->Add(this->textBox1);
 			this->Controls->Add(this->label7);
-			this->Controls->Add(this->label6);
 			this->Controls->Add(this->label5);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->textBox2);
 			this->Controls->Add(this->label4);
 			this->Controls->Add(this->label3);
+			this->DoubleBuffered = true;
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
 			this->Name = L"Administrativo1";
 			this->Text = L"Administrativo1";
@@ -230,6 +235,9 @@ namespace SalteñeriaSIS301 {
 		}
 #pragma endregion
 	private: System::Void Administrativo1_Load(System::Object^ sender, System::EventArgs^ e) {
+		
+		
+
 	}
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 	//modificar datos de empleado
