@@ -9,6 +9,8 @@ namespace SalteñeriaSIS301 {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace System::IO;
+	using namespace System::Drawing::Imaging;
 
 	/// <summary>
 	/// Resumen de Administrativo
@@ -16,6 +18,7 @@ namespace SalteñeriaSIS301 {
 	public ref class Administrativo : public System::Windows::Forms::Form
 	{
 		Conexion^ con;
+		String^ selectedImagePath;
 	public:
 		Administrativo(void)
 		{
@@ -58,11 +61,13 @@ namespace SalteñeriaSIS301 {
 
 
 
-	private: System::Windows::Forms::TextBox^ textBox2;
+
 	private: System::Windows::Forms::TextBox^ textBox3;
 	private: System::Windows::Forms::TextBox^ textBox4;
 	private: System::Windows::Forms::TextBox^ textBox5;
 	private: System::Windows::Forms::ComboBox^ comboBox1;
+	private: System::Windows::Forms::PictureBox^ pictureBox1;
+	private: System::Windows::Forms::Button^ button2;
 
 
 
@@ -95,11 +100,13 @@ namespace SalteñeriaSIS301 {
 			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->label7 = (gcnew System::Windows::Forms::Label());
 			this->button1 = (gcnew System::Windows::Forms::Button());
-			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox4 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox5 = (gcnew System::Windows::Forms::TextBox());
 			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
+			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
+			this->button2 = (gcnew System::Windows::Forms::Button());
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// label1
@@ -135,11 +142,12 @@ namespace SalteñeriaSIS301 {
 			// label4
 			// 
 			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(30, 147);
+			this->label4->Location = System::Drawing::Point(545, 94);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(50, 13);
 			this->label4->TabIndex = 3;
 			this->label4->Text = L"AVATAR";
+			this->label4->Click += gcnew System::EventHandler(this, &Administrativo::label4_Click);
 			// 
 			// label5
 			// 
@@ -182,13 +190,6 @@ namespace SalteñeriaSIS301 {
 			this->button1->UseVisualStyleBackColor = false;
 			this->button1->Click += gcnew System::EventHandler(this, &Administrativo::button1_Click);
 			// 
-			// textBox2
-			// 
-			this->textBox2->Location = System::Drawing::Point(33, 173);
-			this->textBox2->Name = L"textBox2";
-			this->textBox2->Size = System::Drawing::Size(100, 20);
-			this->textBox2->TabIndex = 17;
-			// 
 			// textBox3
 			// 
 			this->textBox3->Location = System::Drawing::Point(155, 172);
@@ -223,6 +224,25 @@ namespace SalteñeriaSIS301 {
 			this->comboBox1->Size = System::Drawing::Size(121, 21);
 			this->comboBox1->TabIndex = 21;
 			// 
+			// pictureBox1
+			// 
+			this->pictureBox1->Location = System::Drawing::Point(548, 117);
+			this->pictureBox1->Name = L"pictureBox1";
+			this->pictureBox1->Size = System::Drawing::Size(100, 99);
+			this->pictureBox1->TabIndex = 22;
+			this->pictureBox1->TabStop = false;
+			this->pictureBox1->Click += gcnew System::EventHandler(this, &Administrativo::pictureBox1_Click);
+			// 
+			// button2
+			// 
+			this->button2->Location = System::Drawing::Point(548, 236);
+			this->button2->Name = L"button2";
+			this->button2->Size = System::Drawing::Size(119, 23);
+			this->button2->TabIndex = 23;
+			this->button2->Text = L"Cargar imagen";
+			this->button2->UseVisualStyleBackColor = true;
+			this->button2->Click += gcnew System::EventHandler(this, &Administrativo::button2_Click_1);
+			// 
 			// Administrativo
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -232,11 +252,12 @@ namespace SalteñeriaSIS301 {
 			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
 			this->ClientSize = System::Drawing::Size(757, 456);
+			this->Controls->Add(this->button2);
+			this->Controls->Add(this->pictureBox1);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->comboBox1);
 			this->Controls->Add(this->textBox5);
 			this->Controls->Add(this->textBox3);
-			this->Controls->Add(this->textBox2);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->label7);
 			this->Controls->Add(this->label6);
@@ -250,6 +271,7 @@ namespace SalteñeriaSIS301 {
 			this->Name = L"Administrativo";
 			this->Text = L"Administrativo";
 			this->Load += gcnew System::EventHandler(this, &Administrativo::Administrativo_Load);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -281,7 +303,7 @@ private: System::Void chart1_Click(System::Object^ sender, System::EventArgs^ e)
 }
 private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
 	String^ nombre;
-	nombre = Convert::ToString(textBox2->Text);
+	//nombre = Convert::ToString(textBox2->Text);
 	if (nombre == "") {
 		MessageBox::Show("Esta vacio escriba el nombre del empleado");
 	}
@@ -322,7 +344,7 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 	//String^ esp;
 	//String^ fec;
 	//String^ tur;
-	ci = Convert::ToString(textBox2->Text);//avatar
+	//ci = Convert::ToString(textBox2->Text);//avatar
 	nom = Convert::ToString(textBox3->Text);
 	//ape = Convert::ToString(textBox4->Text);
 	ape = Convert::ToString(comboBox1->Text);
@@ -338,15 +360,25 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 
 	}
 	else {
-		MessageBox::Show("Se registro al empleado" + nom);
-	
-		textBox2->Text = "";
+		if (selectedImagePath == nullptr || selectedImagePath->Length == 0) {
+			MessageBox::Show("Primero seleccione una imagen.");
+			return;
+		}
+
+		String^ fileName = Path::GetFileName(selectedImagePath);
+		String^ destinationPath = Path::Combine("C:/xampp/htdocs/fichashospita/public/images", fileName);
+		File::Copy(selectedImagePath, destinationPath, true); // Copia la imagen al directorio deseado
+		MessageBox::Show("Imagen guardada correctamente.");
+
+
+		con->insertarEmpleado(fileName, nom, ape, dir);
+		//textBox2->Text = "";
 		textBox3->Text = "";
 		textBox4->Text = "";
 		textBox5->Text = "";
 		comboBox1->Text = "";
 	}
-	con->insertarEmpleado(ci, nom, ape, dir);
+	//con->insertarEmpleado(fileName, nom, ape, dir);
 }
 private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
 	String^ ciu;
@@ -358,6 +390,25 @@ private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e
 		MessageBox::Show("Se modifico al empleado"+ciu);
 	
 	}
+}
+private: System::Void button2_Click_1(System::Object^ sender, System::EventArgs^ e) {
+	OpenFileDialog^ openFileDialog = gcnew OpenFileDialog();
+	openFileDialog->Filter = "Image Files|*.jpg;*.jpeg;*.png";
+	openFileDialog->Title = "Select an Image File";
+	if (openFileDialog->ShowDialog() == System::Windows::Forms::DialogResult::OK)
+	{
+		selectedImagePath = openFileDialog->FileName;
+		pictureBox1->Image = Image::FromFile(selectedImagePath);
+		pictureBox1->SizeMode = PictureBoxSizeMode::StretchImage;
+	}
+	else
+	{
+		MessageBox::Show("No image selected.");
+	}
+}
+private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void label4_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 

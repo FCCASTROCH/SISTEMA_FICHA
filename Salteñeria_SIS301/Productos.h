@@ -224,9 +224,6 @@ namespace SalteñeriaSIS301 {
 			String^ destinationPath = Path::Combine("C:/xampp/htdocs/fichashospita/public/images", fileName);
 			File::Copy(selectedImagePath, destinationPath, true); // Copia la imagen al directorio deseado
 
-		
-		
-
 			MessageBox::Show("Imagen guardada correctamente.");
 			can->insertarpublicacion(titulo, descripcion, fileName);
 			textBox1->Text = "";
@@ -243,12 +240,9 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 	openFileDialog->Title = "Select an Image File";
 	if (openFileDialog->ShowDialog() == System::Windows::Forms::DialogResult::OK)
 	{
-
 		selectedImagePath = openFileDialog->FileName;
 		pictureBox1->Image = Image::FromFile(selectedImagePath);
 		pictureBox1->SizeMode = PictureBoxSizeMode::StretchImage;
-
-
 	}
 	else
 	{

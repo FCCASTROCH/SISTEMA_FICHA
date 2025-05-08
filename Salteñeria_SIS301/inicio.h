@@ -15,7 +15,7 @@ namespace SalteñeriaSIS301 {
 	using namespace System::Drawing;
 	using namespace System::Data::SqlClient;
 	using namespace System::Data::SqlTypes;
-
+	using namespace System::Security;
 
 
 	/// <summary>
@@ -284,36 +284,57 @@ namespace SalteñeriaSIS301 {
 		}
 #pragma endregion
 
+		private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+			String^ nombre = textBox1->Text;
+			String^ contrase = textBox2->Text;
+			array<Byte>^ bytes = System::Text::Encoding::UTF8->GetBytes(contrase);
+			array<Byte>^ hash = System::Security::Cryptography::SHA1::Create()->ComputeHash(bytes);
 
-	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-		String^ nombre;
-		String^ contrase;
-		nombre = Convert::ToString(textBox1->Text);
-		contrase = Convert::ToString(textBox2->Text);
-	
-		if (con->buscarUsuario(nombre, contrase)) {
-			MessageBox::Show("Bienvenido Administrador " + nombre);
-			//inici->Show();
-			formu->Show();
-
-			this->Hide();
+			String^ contrasen = "";
+			for (int i = 0; i < hash->Length; i++) {
+				contrasen += hash[i].ToString("x2");
+			}
+			
+			if (con->buscarUsuario(nombre, contrasen)) {
+				MessageBox::Show("Bienvenido Administrador " + nombre);
+				formu->Show();
+				this->Hide();
+			}
+			else {
+				MessageBox::Show("Usuario o contraseña incorrecta");
+				textBox1->Text = "";
+				textBox2->Text = "";
+				this->textBox1->BackColor = System::Drawing::Color::LightCoral;
+				this->textBox2->BackColor = System::Drawing::Color::LightCoral;
+				this->eyeIcon->BackColor = System::Drawing::Color::LightCoral;
+			}
 		}
-		else {
-			MessageBox::Show("Usuario o contraseña incorrecta");
-			textBox1->Text = "";
-			textBox2->Text = "";
-			this->textBox1->BackColor = System::Drawing::Color::LightCoral;
-			this->textBox2->BackColor = System::Drawing::Color::LightCoral;
-			this->eyeIcon->BackColor = System::Drawing::Color::LightCoral;
-		}
-		//inici->ShowDialog();
-		//inici->Show();
-		//this->Close();
-		//this->Hide();
-		//textBox1->Text = "Lucas";
-		//con->mostrar(dataGridView1);
 
-	}
+	//private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+	//	String^ nombre;
+	//	String^ contrase;
+	//	nombre = Convert::ToString(textBox1->Text);
+	//	contrase = Convert::ToString(textBox2->Text);
+	//	//contrase vamos a descrifrar sha1
+	//	System::Security::Cryptography::SHA1::Create()->ComputeHash(System::Text::Encoding::UTF8->GetBytes(contrase));
+	//	MessageBox::Show("Contraseña encriptada: " + contrase);
+	//	if (con->buscarUsuario(nombre, contrase)) {
+	//		MessageBox::Show("Bienvenido Administrador " + nombre);
+	//		//inici->Show();
+	//		formu->Show();
+
+	//		this->Hide();
+	//	}
+	//	else {
+	//		MessageBox::Show("Usuario o contraseña incorrecta");
+	//		textBox1->Text = "";
+	//		textBox2->Text = "";
+	//		this->textBox1->BackColor = System::Drawing::Color::LightCoral;
+	//		this->textBox2->BackColor = System::Drawing::Color::LightCoral;
+	//		this->eyeIcon->BackColor = System::Drawing::Color::LightCoral;
+	//	}
+
+	//}
 	private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void inicio_Load(System::Object^ sender, System::EventArgs^ e) {
